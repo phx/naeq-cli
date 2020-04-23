@@ -1,7 +1,3 @@
-![Platform: ALL](https://img.shields.io/badge/platform-ALL-green)
-![Dependencies: python3+](https://img.shields.io/badge/dependencies-python3-blue)
-![Follow @rubynorails on Twitter](https://img.shields.io/twitter/follow/rubynorails?label=follow&style=social)
-
 # NAEQ-cli
 
 This is a personal experiment that I have made public to anyone else who is interested in cryptography, as well as high strangeness and other weird topics.
@@ -11,9 +7,14 @@ matching the same CEQ value, which could prove to be interesting and useful.
 
 ---
 
-## Usage:
-
+## Usage
+`git clone https://github.com/phx/naeq-cli`
+`cd naeq-cli`
 `./naeq.py [WORD/NAME/PHRASE]` or `echo [WORD/NAME/PHRASE] | ./naeq.py`
+
+### Dependencies
+
+- python3+
 
 ---
 
