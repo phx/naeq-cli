@@ -8,9 +8,9 @@ matching the same CEQ value, which could prove to be interesting and useful.
 ---
 
 ## Usage
-`git clone https://github.com/phx/naeq-cli`
-`cd naeq-cli`
-`./naeq.py [WORD/NAME/PHRASE]` or `echo [WORD/NAME/PHRASE] | ./naeq.py`
+- `git clone https://github.com/phx/naeq-cli`
+- `cd naeq-cli`
+- `./naeq.py [WORD/NAME/PHRASE]` or `echo [WORD/NAME/PHRASE] | ./naeq.py`
 
 ### Dependencies
 
