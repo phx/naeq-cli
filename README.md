@@ -12,9 +12,9 @@ matching the same CEQ value, which could prove to be interesting and useful.
 - `cd naeq-cli`
 - `./naeq.py [WORD/NAME/PHRASE]` or `echo [WORD/NAME/PHRASE] | ./naeq.py`
 
-### Dependencies
+#### Dependencies
 
-- python3+
+- `python3+`
 
 ---
 
