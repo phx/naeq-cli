@@ -19,7 +19,7 @@ matching the same CEQ value, which could prove to be somewhat interesting.
 ---
 
 Special thanks to [Wren Collier](https://liminalroom.com/) and [Alynne Keith](https://offalynne.neocities.org/), who developed [https://www.naeq.io](https://www.naeq.io/)
-and made their project available on [GitHub](https://github.com/misterapol/naeq).  [`liber_al.py`](liber_al.py) uses the NAEQ dictionary sourced straight from their own
+and made their project available on [GitHub](https://github.com/misterapol/naeq).  My [`liber_al.py`](liber_al.py) uses the NAEQ dictionary sourced straight from their own
 [`data.js`](https://raw.githubusercontent.com/misterapol/naeq/master/data.js), which was a *huge* help in the creation of this command line project, as most of the real
 work had already been done.
 
