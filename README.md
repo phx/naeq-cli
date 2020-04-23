@@ -28,5 +28,6 @@ of the amazing and "crazy" individuals who have investigated and worked with thi
 
 ---
 
-Also a special shout out to [Greg and Dana Newkirk](https://weirdhq.com/) and their amazing series [Hellier](https://www.hellier.tv/), which first introduced me to this material,
-as well as a friend as close as a brother, Devin, who introduced me to the series.
+Also a special shout out to [Greg and Dana Newkirk](https://weirdhq.com/) and their amazing series [Hellier](https://www.hellier.tv/), where I was first introduced me to this material.
+
+I also could have never done this without the insight of my brother in weird investigations, Devin, who first introduced me to the *Hellier* series.
