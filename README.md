@@ -1,9 +1,9 @@
 # NAEQ-cli
 
-This is a personal experiment that I have made public to anyone else who is interested in cryptography, as well as high strangeness and other weird topics.
+This is a personal experiment that I have made public to anyone else who is interested in cryptography as well as high strangeness and other weird topics.
 
 It is a work in progress, and I am eventually going to add the ability to integrate with your own personal database in order to return previous search results
-matching the same CEQ value, which could prove to be interesting and useful.
+matching the same CEQ value, which could prove to be somewhat interesting.
 
 ---
 
