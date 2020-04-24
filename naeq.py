@@ -12,23 +12,37 @@ ceb = {
 
 if len(sys.argv) <= 1:
     try:
-      phrase = ' '.join([c for c in sys.stdin.readlines()])
-      phrase = phrase.strip()
+        phrase = ' '.join([c for c in sys.stdin.readlines()])
+        phrase = phrase.strip()
+        try:
+            phrase = int(phrase)
+        except:
+            pass
     except:
-      print('must take arguments or pipe from stdin')
+        print('must take arguments or pipe from stdin')
 elif len(sys.argv) > 1:
     phrase = ' '.join(sys.argv[1:])
     phrase = phrase.strip()
+    try:
+        phrase = int(phrase)
+    except:
+        pass
 
 values = []
-for ch in phrase.lower():
-    if ch in ceb:
-        values.append(ceb[ch])
 
-value = str(sum(values))
+if isinstance(phrase, str):
+    for ch in phrase.lower():
+        if ch in ceb:
+            values.append(ceb[ch])
+    value = str(sum(values))
+elif isinstance(phrase, int):
+    value = str(phrase)
+else:
+    print('Error getting value from phrase.')
+    sys.exit()
 
 print('---------------------------------------------------------------')
-print('PHRASE: ' + phrase.upper())
+print('PHRASE: ' + str(phrase))
 print('AEQ VALUE: ' + value)
 print('---------------------------------------------------------------')
 print('NAEQ MATCHES:')
