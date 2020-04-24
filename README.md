@@ -10,7 +10,7 @@ matching the same CEQ value, which could prove to be somewhat interesting.
 ## Usage
 - `git clone https://github.com/phx/naeq-cli`
 - `cd naeq-cli`
-- `./naeq.py [WORD/NAME/PHRASE]` or `echo [WORD/NAME/PHRASE] | ./naeq.py`
+- `./naeq.py [WORD/NAME/PHRASE/INTEGER]` or `echo [WORD/NAME/PHRASE/INTEGER] | ./naeq.py`
 
 #### Dependencies
 
