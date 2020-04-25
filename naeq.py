@@ -1,8 +1,18 @@
 #!/usr/bin/env python3
 
-import sys, liber_al
+import json, os, sys
 
-naeq = liber_al.vel_legis()
+SAVE = False
+SILENT = False
+PERSONAL = True
+pdict = 'personal_dictionary.json'
+liber_al = 'liber_al.json'
+
+if not os.path.exists(pdict):
+    with open(pdict, 'w') as f:
+        f.write('{}')
+
+#naeq = liber_al.vel_legis()
 
 ceb = {
       "a": 1,"b": 20,"c": 13,"d": 6,"e": 25,"f": 18,"g": 11,"h": 4,"i": 23,"j": 16,"k": 9,
@@ -10,6 +20,7 @@ ceb = {
       "w": 3,"x": 22,"y": 15,"z": 8
       }
 
+# Get arguments or piped input:
 if len(sys.argv) <= 1:
     try:
         phrase = ' '.join([c for c in sys.stdin.readlines()])
@@ -21,7 +32,19 @@ if len(sys.argv) <= 1:
     except:
         print('must take arguments or pipe from stdin')
 elif len(sys.argv) > 1:
-    phrase = ' '.join(sys.argv[1:])
+    if sys.argv[1] == '-s':
+        phrase = ' '.join(sys.argv[2:])
+        SAVE = True
+    elif sys.argv[1] == '-ss':
+        phrase = ' '.join(sys.argv[2:])
+        SAVE= True
+        SILENT = True
+    elif sys.argv[1] == '-np':
+        phrase = ' '.join(sys.argv[2:])
+        SAVE=False
+        PERSONAL = False
+    else:
+        phrase = ' '.join(sys.argv[1:])
     phrase = phrase.strip()
     try:
         phrase = int(phrase)
@@ -30,6 +53,7 @@ elif len(sys.argv) > 1:
 
 values = []
 
+# Get values from CEB:
 if isinstance(phrase, str):
     for ch in phrase.lower():
         if ch in ceb:
@@ -41,12 +65,51 @@ else:
     print('Error getting value from phrase.')
     sys.exit()
 
-print('---------------------------------------------------------------')
+phrase = phrase.upper()
+
+# Output:
+print('===============================================================')
 print('PHRASE: ' + str(phrase))
 print('AEQ VALUE: ' + value)
-print('---------------------------------------------------------------')
-print('NAEQ MATCHES:')
-print('---------------------------------------------------------------')
-if value in naeq.keys():
-    for line in naeq[value]:
-        print(line)
+
+# Get values from personal dictionary:
+if PERSONAL:
+    try:
+        with open(pdict, 'r') as jdata:
+            data = json.load(jdata)
+            if value in data.keys():
+                print('===============================================================')
+                print('PERSONAL MATCHES:')
+                print('---------------------------------------------------------------')
+                for line in data[value]:
+                    print(line)
+    except: pass
+
+if not SILENT:
+    print('===============================================================')
+    print('NAEQ MATCHES:')
+    print('---------------------------------------------------------------')
+    # Get values from naeq:
+    with open(liber_al, 'r') as jdata:
+        naeq = json.load(jdata)
+        if value in naeq.keys():
+            for line in naeq[value]:
+                print(line)
+
+print('===============================================================')
+
+# Write new query to personal dictionary json object:
+if SAVE:
+    try:
+        with open(pdict, 'r') as jdata:
+            data = json.load(jdata)
+            if value in data.keys():
+                new_values = set([data[value], phrase])
+                data.update({value : list(new_values)})
+                with open(pdict, 'w') as jdata:
+                    jdata.write(json.dumps(data))
+            else:
+                data.update({value : [phrase]})
+                with open(pdict, 'w') as jdata:
+                    jdata.write(json.dumps(data))
+    except: pass

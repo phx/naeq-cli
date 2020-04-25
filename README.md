@@ -2,8 +2,7 @@
 
 This is a personal experiment that I have made public to anyone else who is interested in cryptography as well as high strangeness and other weird topics.
 
-It is a work in progress, and I am eventually going to add the ability to integrate with your own personal database in order to return previous search results
-matching the same CEQ value, which could prove to be somewhat interesting.
+Instead of requiring MongoDB or soemthing like that, I have implemented the use of a personal dictionary as a JSON file for saving personal queries.
 
 ---
 
@@ -12,6 +11,14 @@ matching the same CEQ value, which could prove to be somewhat interesting.
 - `cd naeq-cli`
 - `./naeq.py [WORD/NAME/PHRASE/INTEGER]` or `echo [WORD/NAME/PHRASE/INTEGER] | ./naeq.py`
 
+### Command line flags:
+
+| Parameter | Functionality |
+| :--- | :--- |
+| `-s` | Save - saves the resulting query in your personal database. |
+| `-ss` | SaveSilent - saves resulting personal query and suppresses NAEQ output |
+| `-np` | NoPersonal - suppresses personal database output, and only returns NAEQ results |
+
 #### Dependencies
 
 - `python3+`
@@ -19,7 +26,7 @@ matching the same CEQ value, which could prove to be somewhat interesting.
 ---
 
 Special thanks to [Wren Collier](https://liminalroom.com/) and [Alynne Keith](https://offalynne.neocities.org/), who developed [https://www.naeq.io](https://www.naeq.io/)
-and made their project available on [GitHub](https://github.com/misterapol/naeq).  My [`liber_al.py`](liber_al.py) uses the NAEQ dictionary sourced straight from their own
+and made their project available on [GitHub](https://github.com/misterapol/naeq).  My [`liber_al.json`](liber_al.json) uses the NAEQ dictionary converted straight from their own
 [`data.js`](https://raw.githubusercontent.com/misterapol/naeq/master/data.js), which was a *huge* help in the creation of this command line project, as most of the real
 work had already been done.
 
