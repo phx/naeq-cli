@@ -10,7 +10,7 @@ liber_al = 'liber_al.json'
 
 if not os.path.exists(pdict):
     with open(pdict, 'w') as f:
-        f.write('{}')
+        f.write('{"0": []}')
 
 ceb = {
       "a": 1,"b": 20,"c": 13,"d": 6,"e": 25,"f": 18,"g": 11,"h": 4,"i": 23,"j": 16,"k": 9,
