@@ -12,8 +12,6 @@ if not os.path.exists(pdict):
     with open(pdict, 'w') as f:
         f.write('{}')
 
-#naeq = liber_al.vel_legis()
-
 ceb = {
       "a": 1,"b": 20,"c": 13,"d": 6,"e": 25,"f": 18,"g": 11,"h": 4,"i": 23,"j": 16,"k": 9,
       "l": 2,"m": 21,"n": 14,"o": 7,"p": 26,"q": 19,"r": 12,"s": 5,"t": 24,"u": 17,"v": 10,
@@ -65,7 +63,8 @@ else:
     print('Error getting value from phrase.')
     sys.exit()
 
-phrase = phrase.upper()
+if isinstance(phrase, str):
+    phrase = phrase.upper()
 
 # Output:
 print('===============================================================')
@@ -98,14 +97,30 @@ if not SILENT:
 
 print('===============================================================')
 
+
+def uniq(lst):
+    last = object()
+    for item in lst:
+        if item == last:
+            continue
+        yield item
+        last = item
+
+
+def sort_and_deduplicate(l):
+    return list(uniq(sorted(l, reverse=True)))
+
+
 # Write new query to personal dictionary json object:
 if SAVE:
     try:
         with open(pdict, 'r') as jdata:
             data = json.load(jdata)
             if value in data.keys():
-                new_values = set([data[value], phrase])
-                data.update({value : list(new_values)})
+                new_values = list(data[value])
+                new_values.append(phrase)
+                new_values = sort_and_deduplicate(new_values)
+                data.update({value : new_values})
                 with open(pdict, 'w') as jdata:
                     jdata.write(json.dumps(data))
             else:
