@@ -96,7 +96,11 @@ if PERSONAL:
                 print('PERSONAL MATCHES:')
                 print('---------------------------------------------------------------')
                 for line in data[value]:
-                    print(line)
+                    if DELETE:
+                        if line != phrase:
+                            print(line)
+                    else:
+                        print(line)
     except: pass
 
 if not SILENT:
