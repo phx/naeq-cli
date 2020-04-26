@@ -16,12 +16,13 @@ Instead of requiring MongoDB or soemthing like that, I have implemented the use 
 ### Command line flags:
 
 | Parameter | Functionality |
-| :--- | :--- |
-| `-s` | Save - saves the resulting query in your personal database. |
-| `-ss` | SaveSilent - saves resulting personal query and suppresses NAEQ output |
-| `-np` | NoPersonal - suppresses personal database output, and only returns NAEQ results |
-| `-d`  | Delete - deletes the result from your personal database |
-| `-q`  | Quiet - suppress all output except for the CEQ value for the query |
+| :---  | :--- |
+| `-s`  | *Save* - saves the resulting query in your personal database. |
+| `-ss` | *Save Silent* - saves resulting personal query and suppresses NAEQ output |
+| `-d`  | *Delete* - deletes the result from your personal database |
+| `-np` | *No Personal* - suppresses personal database output, and only returns NAEQ results |
+| `-nn` | *No NAEQ* - suppresses NAEQ output results | 
+| `-q`  | *Quiet* - suppress all output except for the CEQ value for the query |
 
 ## Caveats:
 
