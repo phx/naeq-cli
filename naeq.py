@@ -16,53 +16,47 @@ if not os.path.exists(pdict):
 ceb = {
       "a": 1,"b": 20,"c": 13,"d": 6,"e": 25,"f": 18,"g": 11,"h": 4,"i": 23,"j": 16,"k": 9,
       "l": 2,"m": 21,"n": 14,"o": 7,"p": 26,"q": 19,"r": 12,"s": 5,"t": 24,"u": 17,"v": 10,
-      "w": 3,"x": 22,"y": 15,"z": 8
+      "w": 3,"x": 22,"y": 15,"z": 8,
+      "0": 0,"1": 1,"2": 2,"3": 3,"4": 4,"5": 5,"6": 6,"7": 7,"8": 8,"9": 9
       }
 
 # Get arguments or piped input:
 if len(sys.argv) <= 1:
     try:
         phrase = ' '.join([c for c in sys.stdin.readlines()])
-        phrase = phrase.strip()
-        try:
-            phrase = int(phrase)
-        except:
-            pass
+        phrase = str(phrase).strip()
     except:
         print('must take arguments or pipe from stdin')
 elif len(sys.argv) > 1:
     param = sys.argv[1]
     phrase = ' '.join(sys.argv[2:])
+    phrase = str(phrase).strip()
     # Save to personal dictionary
     if param == '-s':
-        phrase = ' '.join(sys.argv[2:])
         SAVE = True
     # Save-Silent to personal dict, suppress NAEQ output
     elif param == '-ss':
-        phrase = ' '.join(sys.argv[2:])
-        SAVE= True
+        SAVE = True
         SILENT = True
-    # No-personal - suppress output from personal dict
-    elif param == '-np':
-        phrase = ' '.join(sys.argv[2:])
-        SAVE=False
-        PERSONAL = False
     # Delete entry from personal dictionary
     elif param == '-d':
-        SAVE=True
-        SILENT=True
-        DELETE=True
+        SAVE = True
+        SILENT = True
+        DELETE = True
+    # No Personal - suppress output from personal dict
+    elif param == '-np':
+        SAVE = False
+        PERSONAL = False
+    # No NAEQ - suppress output from NAEQ
+    elif param == '-nn':
+        SILENT = True
     # Quiet - suppress all output except for the CEQ value
     elif param == '-q':
         PERSONAL = False
         SILENT = True
     else:
         phrase = ' '.join(sys.argv[1:])
-    phrase = phrase.strip()
-    try:
-        phrase = int(phrase)
-    except:
-        pass
+        phrase = str(phrase).strip()
 
 values = []
 

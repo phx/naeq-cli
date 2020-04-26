@@ -24,10 +24,6 @@ Instead of requiring MongoDB or soemthing like that, I have implemented the use 
 | `-nn` | *No NAEQ* - suppresses NAEQ output and only returns personal database results | 
 | `-q`  | *Quiet* - suppress all output except for the CEQ value for the query |
 
-## Caveats:
-
-The program is currently unable to process accurate values for queries that are a combination of strings and integers, which is something I am currently working to fix.
-
 ---
 
 Special thanks to [Wren Collier](https://liminalroom.com/) and [Alynne Keith](https://offalynne.neocities.org/), who developed [https://www.naeq.io](https://www.naeq.io/)
