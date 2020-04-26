@@ -31,22 +31,31 @@ if len(sys.argv) <= 1:
     except:
         print('must take arguments or pipe from stdin')
 elif len(sys.argv) > 1:
-    if sys.argv[1] == '-s':
+    param = sys.argv[1]
+    phrase = ' '.join(sys.argv[2:])
+    # Save to personal dictionary
+    if param == '-s':
         phrase = ' '.join(sys.argv[2:])
         SAVE = True
-    elif sys.argv[1] == '-ss':
+    # Save-Silent to personal dict, suppress NAEQ output
+    elif param == '-ss':
         phrase = ' '.join(sys.argv[2:])
         SAVE= True
         SILENT = True
-    elif sys.argv[1] == '-np':
+    # No-personal - suppress output from personal dict
+    elif param == '-np':
         phrase = ' '.join(sys.argv[2:])
         SAVE=False
         PERSONAL = False
-    elif sys.argv[1] == '-d':
-        phrase = ' '.join(sys.argv[2:])
+    # Delete entry from personal dictionary
+    elif param == '-d':
         SAVE=True
         SILENT=True
         DELETE=True
+    # Quiet - suppress all output except for the CEQ value
+    elif param == '-q':
+        PERSONAL = False
+        SILENT = True
     else:
         phrase = ' '.join(sys.argv[1:])
     phrase = phrase.strip()

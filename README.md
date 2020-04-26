@@ -4,6 +4,8 @@ This is a personal experiment that I have made public to anyone else who is inte
 
 Instead of requiring MongoDB or soemthing like that, I have implemented the use of a personal dictionary as a JSON file for saving personal queries.
 
+**Dependencies:** `python3+`
+
 ---
 
 ## Usage
@@ -19,10 +21,11 @@ Instead of requiring MongoDB or soemthing like that, I have implemented the use 
 | `-ss` | SaveSilent - saves resulting personal query and suppresses NAEQ output |
 | `-np` | NoPersonal - suppresses personal database output, and only returns NAEQ results |
 | `-d`  | Delete - deletes the result from your personal database |
+| `-q`  | Quiet - suppress all output except for the CEQ value for the query |
 
-#### Dependencies
+## Caveats:
 
-- `python3+`
+The program is currently unable to process accurate values for queries that are a combination of strings and integers, which is something I am currently working to fix.
 
 ---
 
