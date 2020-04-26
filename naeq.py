@@ -5,6 +5,7 @@ import json, os, sys
 SAVE = False
 SILENT = False
 PERSONAL = True
+DELETE = False
 pdict = 'personal_dictionary.json'
 liber_al = 'liber_al.json'
 
@@ -41,6 +42,11 @@ elif len(sys.argv) > 1:
         phrase = ' '.join(sys.argv[2:])
         SAVE=False
         PERSONAL = False
+    elif sys.argv[1] == '-d':
+        phrase = ' '.join(sys.argv[2:])
+        SAVE=True
+        SILENT=True
+        DELETE=True
     else:
         phrase = ' '.join(sys.argv[1:])
     phrase = phrase.strip()
@@ -118,7 +124,10 @@ if SAVE:
             data = json.load(jdata)
             if value in data.keys():
                 new_values = list(data[value])
-                new_values.append(phrase)
+                if DELETE:
+                   new_values.remove(phrase)
+                else:
+                   new_values.append(phrase)
                 new_values = sort_and_deduplicate(new_values)
                 data.update({value : new_values})
                 with open(pdict, 'w') as jdata:

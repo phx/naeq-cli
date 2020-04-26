@@ -18,6 +18,7 @@ Instead of requiring MongoDB or soemthing like that, I have implemented the use 
 | `-s` | Save - saves the resulting query in your personal database. |
 | `-ss` | SaveSilent - saves resulting personal query and suppresses NAEQ output |
 | `-np` | NoPersonal - suppresses personal database output, and only returns NAEQ results |
+| `-d`  | Delete - deletes the result from your personal database |
 
 #### Dependencies
 
