@@ -78,6 +78,12 @@ if not QUERY:
     value = str(sum(values))
 else:
     # For -v parameter, the phrase is querying the value
+    try:
+        int(phrase)
+    except:
+        print('The -v parameter only accepts positive integer arguments.')
+        print('Please try again with a number.')
+        sys.exit()
     value = str(phrase)
 
 phrase = phrase.upper()
