@@ -19,10 +19,11 @@ Instead of requiring MongoDB or soemthing like that, I have implemented the use 
 | :---  | :--- |
 | `-b`  | *Backup* - backs up your personal database |
 | `-d`  | *Delete* - deletes the result from your personal database |
-| `-s`  | *Save* - saves the resulting query in your personal database. |
-| `-ss` | *Save Silent* - saves resulting personal query and suppresses NAEQ output |
 | `-nn` | *No NAEQ* - suppresses NAEQ output and only returns personal database results | 
 | `-np` | *No Personal* - suppresses personal database output and only returns NAEQ results |
+| `-s`  | *Save* - saves the resulting query in your personal database. |
+| `-ss` | *Save Silent* - saves resulting personal query and suppresses NAEQ output |
+| `-v`  | *Value* - queries all terms associated with a specific numeric value |
 | `-q`  | *Quiet* - suppress all output except for the CEQ value for the query |
 
 Upon running `./naeq.py -s [QUERY]` or `./naeq.py -ss` for the first time, a personal dictionary named `dictionary.json` will be created in the same directory.

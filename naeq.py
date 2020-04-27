@@ -6,6 +6,7 @@ SAVE = False
 SILENT = False
 PERSONAL = True
 DELETE = False
+QUERY = False
 pdict = 'dictionary.json'
 backup = 'dictionary.bak'
 liber_al = 'liber_al.json'
@@ -37,25 +38,28 @@ elif len(sys.argv) > 1:
         shutil.copy(pdict, backup)
         print(pdict + ' was successfully copied to ' + backup)
         sys.exit()
+    # Delete entry from personal dictionary
+    if param == '-d':
+        SAVE = True
+        SILENT = True
+        DELETE = True
+    # No NAEQ - suppress output from NAEQ
+    elif param == '-nn':
+        SILENT = True
+    # No Personal - suppress output from personal dict
+    elif param == '-np':
+        SAVE = False
+        PERSONAL = False
     # Save to personal dictionary
-    if param == '-s':
+    elif param == '-s':
         SAVE = True
     # Save-Silent to personal dict, suppress NAEQ output
     elif param == '-ss':
         SAVE = True
         SILENT = True
-    # Delete entry from personal dictionary
-    elif param == '-d':
-        SAVE = True
-        SILENT = True
-        DELETE = True
-    # No Personal - suppress output from personal dict
-    elif param == '-np':
-        SAVE = False
-        PERSONAL = False
-    # No NAEQ - suppress output from NAEQ
-    elif param == '-nn':
-        SILENT = True
+    # Value - query specific numerical value
+    elif param == '-v':
+        QUERY = True
     # Quiet - suppress all output except for the CEQ value
     elif param == '-q':
         PERSONAL = False
@@ -67,19 +71,16 @@ elif len(sys.argv) > 1:
 values = []
 
 # Get values from CEB:
-if isinstance(phrase, str):
+if not QUERY:
     for ch in phrase.lower():
         if ch in ceb:
             values.append(ceb[ch])
     value = str(sum(values))
-elif isinstance(phrase, int):
-    value = str(phrase)
 else:
-    print('Error getting value from phrase.')
-    sys.exit()
+    # For -v parameter, the phrase is querying the value
+    value = str(phrase)
 
-if isinstance(phrase, str):
-    phrase = phrase.upper()
+phrase = phrase.upper()
 
 # Output:
 print('===============================================================')
