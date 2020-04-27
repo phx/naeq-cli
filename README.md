@@ -17,12 +17,22 @@ Instead of requiring MongoDB or soemthing like that, I have implemented the use 
 
 | Parameter | Functionality |
 | :---  | :--- |
+| `-b`  | *Backup* - backs up your personal database |
+| `-d`  | *Delete* - deletes the result from your personal database |
 | `-s`  | *Save* - saves the resulting query in your personal database. |
 | `-ss` | *Save Silent* - saves resulting personal query and suppresses NAEQ output |
-| `-d`  | *Delete* - deletes the result from your personal database |
-| `-np` | *No Personal* - suppresses personal database output and only returns NAEQ results |
 | `-nn` | *No NAEQ* - suppresses NAEQ output and only returns personal database results | 
+| `-np` | *No Personal* - suppresses personal database output and only returns NAEQ results |
 | `-q`  | *Quiet* - suppress all output except for the CEQ value for the query |
+
+Upon running `./naeq.py -s [QUERY]` or `./naeq.py -ss` for the first time, a personal dictionary named `dictionary.json` will be created in the same directory.
+
+Running these commands will save the query into `dictionary.json`.
+
+You can run `./naeq.py -d [QUERY]` do remove the query from `dictionary.json`.
+
+When you start to establish a pretty good size dictionary and want to make sure it stays intact, you may want to periodically back it up using `./naeq.py -b`, which will copy
+`dictionary.json` to `dictionary.bak`.
 
 ---
 

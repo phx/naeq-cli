@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 
-import json, os, sys
+import json, os, shutil, sys
 
 SAVE = False
 SILENT = False
 PERSONAL = True
 DELETE = False
-pdict = 'personal_dictionary.json'
+pdict = 'dictionary.json'
+backup = 'dictionary.bak'
 liber_al = 'liber_al.json'
 
 if not os.path.exists(pdict):
@@ -31,6 +32,11 @@ elif len(sys.argv) > 1:
     param = sys.argv[1]
     phrase = ' '.join(sys.argv[2:])
     phrase = str(phrase).strip()
+    # Backup personal dictionary
+    if param == '-b':
+        shutil.copy(pdict, backup)
+        print(pdict + ' was successfully copied to ' + backup)
+        sys.exit()
     # Save to personal dictionary
     if param == '-s':
         SAVE = True
